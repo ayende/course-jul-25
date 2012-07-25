@@ -1,0 +1,8 @@
+2012-07-25 10:15:12,147 [1] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-25 10:15:15,109 [1] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-25 10:15:15,315 [1] DEBUG Rhino.Licensing.AbstractLicenseValidator [(null)] - License accepted for NHibernate Profiler
+2012-07-25 10:15:16,351 [4] INFO  HibernatingRhinos.Profiler.Client.App [(null)] - Checking for updates...
+2012-07-25 10:20:15,120 [14] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-25 10:20:16,372 [14] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-25 10:25:16,373 [18] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-25 10:25:17,156 [18] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
