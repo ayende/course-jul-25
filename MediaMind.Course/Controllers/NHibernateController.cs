@@ -48,5 +48,30 @@ namespace MediaMind.Course.Controllers
 		{
 			return base.Json(data, contentType, contentEncoding, JsonRequestBehavior.AllowGet);
 		}
+
+		public new ISession Session { get; set; }
+
+		protected override void OnActionExecuting(ActionExecutingContext filterContext)
+		{
+			Session = SessionFactory.OpenSession();
+		}
+
+		protected override void OnActionExecuted(ActionExecutedContext filterContext)
+		{
+			using(Session)
+			{
+				if (filterContext.Exception != null)
+					return;
+
+				if (!Session.IsDirty()) 
+					return;
+
+				using(Session.BeginTransaction())
+				{
+					Session.Transaction.Commit();
+				}
+			}
+		}
+
 	}
 }

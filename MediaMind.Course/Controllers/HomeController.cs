@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using MediaMind.Course.Models;
 
 namespace MediaMind.Course.Controllers
 {
