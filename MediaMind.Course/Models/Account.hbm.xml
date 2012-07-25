@@ -3,7 +3,7 @@
 									 namespace="MediaMind.Course.Models"
 									 assembly="MediaMind.Course">
 
-	<class name="Account">
+	<class name="Account" >
 		<id name="Id">
 			<generator class="hilo"/>
 		</id>
@@ -11,7 +11,45 @@
 		<property name="Type" not-null="true"/>
 		<property name="CreationDate" not-null="true"/>
 		<property name="IsActive" not-null="true"/>
-		<property name="CsUser" not-null="true"/>
+		<property name="CsUser" not-null="true" />
+		<many-to-one name="Office" />
+
+		<set name="Campaigns" inverse="true">
+			<key column="Account"/>
+			<one-to-many class="Campaign"/>
+		</set>
 	</class>
 	
+
+	<class name="Office">
+		<id column="Id" type="System.Int64">
+			<generator class="hilo"/>
+		</id>
+		<property name="Name" not-null="true"/>
+	</class>
+
+
+
+	<class name="Campaign">
+		<id name="Id" column="Id" type="System.Int64">
+			<generator class="hilo"/>
+		</id>
+		<property name="Name" not-null="true"/>
+		<many-to-one name="Account"/>
+
+		<set name="Ads" inverse="true">
+			<key column="Campaign"/>
+			<one-to-many class="Ad"/>
+		</set>
+	</class>
+
+
+	<class name="Ad">
+		<id name="Id" column="Id" type="System.Int64">
+			<generator class="hilo"/>
+		</id>
+		<property name="Name" not-null="true"/>
+		<many-to-one name="Campaign"/>
+
+	</class>
 </hibernate-mapping>
