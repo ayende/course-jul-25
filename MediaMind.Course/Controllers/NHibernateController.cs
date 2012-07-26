@@ -1,8 +1,10 @@
 ﻿using System.Reflection;
 using System.Threading;
 using System.Web.Mvc;
+using MediaMind.Course.Infrastructure;
 using NHibernate;
 using NHibernate.Cfg;
+using NHibernate.Event;
 using Environment = System.Environment;
 
 namespace MediaMind.Course.Controllers
@@ -16,12 +18,12 @@ namespace MediaMind.Course.Controllers
 		{
 			get
 			{
-				if(sessionFactory == null)
+				if (sessionFactory == null)
 				{
-					lock(typeof(NHibernateController))
+					lock (typeof(NHibernateController))
 					{
 						Thread.MemoryBarrier();
-						if(sessionFactory == null)
+						if (sessionFactory == null)
 						{
 							sessionFactory = CreateSessionFactory();
 						}
@@ -36,11 +38,15 @@ namespace MediaMind.Course.Controllers
 			var cfg = new Configuration();
 			cfg.DataBaseIntegration(properties =>
 			{
-				properties.SchemaAction = SchemaAutoAction.Update;
+				properties.SchemaAction = SchemaAutoAction.Create;
 				properties.Dialect<NHibernate.Dialect.MsSql2008Dialect>();
 				properties.ConnectionStringName = Environment.MachineName;
 			});
 			cfg.AddAssembly(Assembly.GetExecutingAssembly());
+			cfg.SetInterceptor(new DontMakeMeCRY());
+			var validatingEventListener = new ValidatingEventListener();
+			cfg.SetListener(ListenerType.PreInsert, validatingEventListener);
+			cfg.SetListener(ListenerType.PreUpdate, validatingEventListener);
 			return cfg.BuildSessionFactory();
 		}
 
@@ -59,15 +65,15 @@ namespace MediaMind.Course.Controllers
 
 		protected override void OnActionExecuted(ActionExecutedContext filterContext)
 		{
-			using(Session)
+			using (Session)
 			{
 				if (filterContext.Exception != null)
 					return;
 
-				if (!Session.IsDirty()) 
+				if (!Session.IsDirty())
 					return;
 
-				using(Session.BeginTransaction())
+				using (Session.BeginTransaction())
 				{
 					Session.Transaction.Commit();
 				}

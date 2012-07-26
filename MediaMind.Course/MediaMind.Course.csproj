@@ -76,14 +76,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\NHibernateProfilerBootstrapper.cs" />
+    <Compile Include="Controllers\AdController.cs" />
+    <Compile Include="Controllers\PlacementController.cs" />
+    <Compile Include="Infrastructure\AbstractValidator.cs" />
+    <Compile Include="BusinessRules\MaxContactsPerCampaignValidator.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NHibernateController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\DontMakeMeCRY.cs" />
+    <Compile Include="Infrastructure\ValidatingEventListener.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Campaign.cs" />
+    <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Office.cs" />
+    <Compile Include="Models\Placement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -117,7 +125,12 @@
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <EmbeddedResource Include="Models\Account.hbm.xml" />
+    <EmbeddedResource Include="Models\Account.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Placement.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />
     <Content Include="Scripts\jquery-1.5.1.min.js" />
@@ -178,7 +191,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>30674</DevelopmentServerPort>
+          <DevelopmentServerPort>38840</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

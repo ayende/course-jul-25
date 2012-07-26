@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+									 namespace="MediaMind.Course.Models"
+									 assembly="MediaMind.Course">
+
+
+  <class name="Placement">
+    <id name="Id">
+      <generator class="native"/>
+    </id>
+
+    <property name="Type"/>
+
+    <property name="Name"/>
+
+    <component name="OutOfBanner">
+      <property name="Position" column="OutOfBanner_Position"/>
+    </component>
+    <component name="Banner">
+      <property name="Size" column="Banner_Size"/>
+      <property name="Color" column="Banner_Color"/>
+    </component>
+
+  </class>
+
+
+</hibernate-mapping>

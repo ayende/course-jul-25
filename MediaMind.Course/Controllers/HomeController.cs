@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Web.Mvc;
 using MediaMind.Course.Models;
+using NHibernate;
 using NHibernate.Linq;
 
 namespace MediaMind.Course.Controllers
@@ -13,6 +14,19 @@ namespace MediaMind.Course.Controllers
 		public ActionResult Index()
 		{
 			return Json(SessionFactory != null);
+		}
+		public ActionResult NoLock(long id)
+		{
+			Session.Get<Ad>(id, LockMode.None);
+			return Json("okay");
+		}
+		public ActionResult AccountFromAd(int id)
+		{
+			return Json(Session.Query<Ad>()
+			            	.Where(x => x.Id == id)
+			            	.Select(x => x.Campaign.Account.Id)
+			            	.First()
+				);
 		}
 
 		public ActionResult Nice(int id)
@@ -66,8 +80,8 @@ namespace MediaMind.Course.Controllers
 				{
 					OfficeName = account.Office.Name,
 					AccountName = account.Name,
-					Campaigns = account.Campaigns.Select(x=>x.Name).ToArray(),
-					Ads = account.Campaigns.SelectMany(x=>x.Ads).Select(x=>x.Name).ToArray()
+					Campaigns = account.Campaigns.Select(x => x.Name).ToArray(),
+					Ads = account.Campaigns.SelectMany(x => x.Ads).Select(x => x.Name).ToArray()
 				}
 				);
 
@@ -120,11 +134,10 @@ namespace MediaMind.Course.Controllers
 		public ActionResult LoadAccount(int id)
 		{
 			var account = Session.Get<Account>(id);
-			var office = account.Office;
 
 			return Json(new
 			{
-				CsUser = account.CsUser
+				AdsCount = account.Campaigns.Sum(x=>x.Ads.Count)
 			});
 		}
 
@@ -140,14 +153,39 @@ namespace MediaMind.Course.Controllers
 			return Json("okay");
 		}
 
+		public ActionResult CampaignByContact(long id, int start, int pageSize)
+		{
+			var q = Session.Query<Campaign>()
+				.Take(pageSize)
+				.Skip(start)
+				.Where(x => x.Contacts.Any(y => y.Id == id))
+				.Select(x => new { x.Id, x.Name });
+
+			return Json(q.ToList());
+		}
+
+		public ActionResult AddContactToCampaign(long id, long contactId)
+		{
+			var contact = Session.Load<Contact>(contactId);
+			var campaign = Session.Get<Campaign>(id);
+			campaign.Contacts.Add(contact);
+
+			return Json("ok");
+		}
+
 		public ActionResult NewAccount(string name)
 		{
-			var office = new Office {Name = "Office for " + name};
-
+			var office = new Office { Name = "Office for " + name };
 			Session.Save(office);
+
 
 			for (int i = 0; i < 5; i++)
 			{
+				var contact = new Contact
+				{
+					Name = "test " + i
+				};
+				Session.Save(contact);
 				var account = new Account
 				{
 					CreationDate = DateTime.Now,
@@ -155,7 +193,7 @@ namespace MediaMind.Course.Controllers
 					Name = name,
 					CsUser = "something",
 					Type = "Agency",
-					Office = office	
+					Office = office
 				};
 
 				Session.Save(account);
@@ -165,19 +203,20 @@ namespace MediaMind.Course.Controllers
 					var c = new Campaign
 					{
 						Name = "cool " + i + " " + j,
-						Account = account
+						Account = account,
+						Contacts = { contact }
 					};
 					Session.Save(c);
 
-					for (int k = 0; k < 20; k++)
-					{
-						var ad = new Ad
-						{
-							Campaign = c,
-							Name = "amazing"
-						};
-						Session.Save(ad);
-					}
+                    //for (int k = 0; k < 20; k++)
+                    //{
+                    //    var ad = new Ad
+                    //    {
+                    //        Campaign = c,
+                    //        Name = "amazing"
+                    //    };
+                    //    Session.Save(ad);
+                    //}
 				}
 			}
 
