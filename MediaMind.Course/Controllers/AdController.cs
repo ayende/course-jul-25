@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using MediaMind.Course.Models;
 using NHibernate.Linq;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace MediaMind.Course.Controllers
             var id = Session.Save(new Ad
             {
                 Name = "Test Ad",
+                PublishAt = DateTime.Now,
                 Data = new StandardBanner()
                 {
                     Size = "300x120",
@@ -30,6 +32,7 @@ namespace MediaMind.Course.Controllers
             {
                 x.Name, 
                 x.Type,
+                PublishAt = x.PublishAt.ToString("g"),
                 x.Data.SmartResource
             }).ToList());
         }

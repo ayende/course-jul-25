@@ -1,3 +1,5 @@
+using System;
+
 namespace MediaMind.Course.Models
 {
     public class Ad
@@ -14,6 +16,8 @@ namespace MediaMind.Course.Models
                 return "no idea";
             }
         }
+
+        public virtual DateTime PublishAt { get; set; }
         public virtual Campaign Campaign { get; set; }
         public virtual long Id { get; set; }
         public virtual string Name { get; set; }

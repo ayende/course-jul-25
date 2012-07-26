@@ -8,6 +8,10 @@
       <generator class="hilo"/>
     </id>
     <property name="Name" not-null="true"/>
+    
+    <property name="PublishAt" not-null="true"
+              type="MediaMind.Course.Infrastructure.LocalDateType, MediaMind.Course"/>
+    
     <many-to-one name="Campaign"/>
 
     <any name="Data" id-type="System.Int64" meta-type="System.String"

@@ -88,6 +88,7 @@
     </Compile>
     <Compile Include="Infrastructure\DontMakeMeCRY.cs" />
     <Compile Include="Infrastructure\Inflector.cs" />
+    <Compile Include="Infrastructure\LocalDateType.cs" />
     <Compile Include="Infrastructure\NamingConvention.cs" />
     <Compile Include="Infrastructure\Optimizations.cs" />
     <Compile Include="Infrastructure\ValidatingEventListener.cs" />
