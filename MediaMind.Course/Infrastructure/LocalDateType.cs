@@ -6,6 +6,7 @@ using NHibernate.UserTypes;
 
 namespace MediaMind.Course.Infrastructure
 {
+    [Serializable]
     public class LocalDateType : IUserType
     {
         public bool Equals(object x, object y)

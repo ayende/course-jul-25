@@ -18,7 +18,7 @@ namespace MediaMind.Course.Controllers
                 {
                     Size = "300x120",
                     SmartResource = 4
-                }
+                },
             });
 
             return Json(id);
@@ -46,7 +46,7 @@ namespace MediaMind.Course.Controllers
             {
                 ad.Name,
                 ad.Data.SmartResource,
-                ((VideoStripImageAdData) ad.Data).DefaultImage
+                FormatType_Name = ad.FormatType.Name
             });
         }
 

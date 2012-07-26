@@ -8,6 +8,8 @@
       <generator class="hilo"/>
     </id>
     <property name="Name" not-null="true"/>
+    <property name="FormatType"
+              type="MediaMind.Course.Infrastructure.FormatTypeLookupType, MediaMind.Course"/>
     
     <property name="PublishAt" not-null="true"
               type="MediaMind.Course.Infrastructure.LocalDateType, MediaMind.Course"/>
@@ -39,6 +41,13 @@
     <union-subclass name="StandardBanner">
       <property name="Size"/>
     </union-subclass>
+  </class>
+
+  <class name="FormatType" mutable="false">
+    <id name="Id" column="Id" type="System.Int64">
+      <generator class="assigned"/>
+    </id>
+    <property name="Name"/>
   </class>
 
 

@@ -77,8 +77,10 @@
   <ItemGroup>
     <Compile Include="App_Start\NHibernateProfilerBootstrapper.cs" />
     <Compile Include="Controllers\AdController.cs" />
+    <Compile Include="Controllers\BootStrapper.cs" />
     <Compile Include="Controllers\FunController.cs" />
     <Compile Include="Controllers\PlacementController.cs" />
+    <Compile Include="Controllers\TimingController.cs" />
     <Compile Include="Infrastructure\AbstractValidator.cs" />
     <Compile Include="BusinessRules\MaxContactsPerCampaignValidator.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -89,6 +91,7 @@
     <Compile Include="Infrastructure\DontMakeMeCRY.cs" />
     <Compile Include="Infrastructure\Inflector.cs" />
     <Compile Include="Infrastructure\LocalDateType.cs" />
+    <Compile Include="Infrastructure\LookupType.cs" />
     <Compile Include="Infrastructure\NamingConvention.cs" />
     <Compile Include="Infrastructure\Optimizations.cs" />
     <Compile Include="Infrastructure\ValidatingEventListener.cs" />
@@ -96,6 +99,7 @@
     <Compile Include="Models\Ad.cs" />
     <Compile Include="Models\Campaign.cs" />
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\FormatType.cs" />
     <Compile Include="Models\Office.cs" />
     <Compile Include="Models\Placement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,7 +1,9 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics;
+using System.Reflection;
 using System.Threading;
 using System.Web.Mvc;
 using MediaMind.Course.Infrastructure;
+using MediaMind.Course.Models;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Event;
@@ -14,6 +16,8 @@ namespace MediaMind.Course.Controllers
 	{
 		private static ISessionFactory sessionFactory;
 
+
+	    public static Stopwatch sp;
 		public static ISessionFactory SessionFactory
 		{
 			get
@@ -34,30 +38,46 @@ namespace MediaMind.Course.Controllers
 		}
 
 		private static ISessionFactory CreateSessionFactory()
-		{
-			var cfg = new Configuration();
-            //cfg.SetNamingStrategy(new NamingConvention());
-            cfg.DataBaseIntegration(properties =>
-			{
-                //properties.SchemaAction = SchemaAutoAction.Validate;
-				properties.Dialect<NHibernate.Dialect.MsSql2008Dialect>();
-				properties.ConnectionStringName = Environment.MachineName;
-			});
-			cfg.AddAssembly(Assembly.GetExecutingAssembly());
-            cfg.SetInterceptor(new DontMakeMeCRY());
-			var validatingEventListener = new ValidatingEventListener();
-			cfg.SetListener(ListenerType.PreInsert, validatingEventListener);
-			cfg.SetListener(ListenerType.PreUpdate, validatingEventListener);
+        {
+            sp = Stopwatch.StartNew();
+            Configuration cfg;
+            if(ConfigurationSaver.IsConfigurationFileValid)
+            {
+                cfg = ConfigurationSaver.LoadConfigurationFromFile();
+            } 
+		    else
+            {
+                cfg = CreateConfiguration();
+                ConfigurationSaver.SaveConfigurationToFile(cfg);
+            }
+            sp.Stop();
 
-            cfg.SetProperty(
-                NHibernate.Cfg.Environment.DefaultBatchFetchSize,
-                "25");
-
-			return cfg.BuildSessionFactory();
+		    var buildSessionFactory = cfg.BuildSessionFactory();
+            FormatTypeLookupType.Init(buildSessionFactory);
+		    return buildSessionFactory;
 		}
 
+	    private static Configuration CreateConfiguration()
+	    {
+	        var cfg = new Configuration();
+	        //cfg.SetNamingStrategy(new NamingConvention());
+	        cfg.DataBaseIntegration(properties =>
+	        {
+	            //properties.SchemaAction = SchemaAutoAction.Validate;
+	            properties.Dialect<NHibernate.Dialect.MsSql2008Dialect>();
+	            properties.ConnectionStringName = Environment.MachineName;
+	        });
+	        cfg.AddAssembly(Assembly.GetExecutingAssembly());
+	        cfg.SetInterceptor(new DontMakeMeCRY());
+            
+	        cfg.SetProperty(
+	            NHibernate.Cfg.Environment.DefaultBatchFetchSize,
+	            "25");
+	        return cfg;
+	    }
 
-		protected override JsonResult Json(object data, string contentType, System.Text.Encoding contentEncoding, JsonRequestBehavior behavior)
+
+	    protected override JsonResult Json(object data, string contentType, System.Text.Encoding contentEncoding, JsonRequestBehavior behavior)
 		{
 			return base.Json(data, contentType, contentEncoding, JsonRequestBehavior.AllowGet);
 		}

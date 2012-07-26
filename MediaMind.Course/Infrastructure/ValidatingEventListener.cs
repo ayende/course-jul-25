@@ -5,6 +5,7 @@ using System.Linq;
 
 namespace MediaMind.Course.Infrastructure
 {
+    [Serializable]
 	public class ValidatingEventListener
 		 : IPreInsertEventListener, IPreUpdateEventListener, IPreCollectionUpdateEventListener
 	{

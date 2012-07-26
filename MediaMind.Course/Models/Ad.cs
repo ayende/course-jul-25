@@ -17,6 +17,7 @@ namespace MediaMind.Course.Models
             }
         }
 
+        public virtual FormatType FormatType { get; set; }
         public virtual DateTime PublishAt { get; set; }
         public virtual Campaign Campaign { get; set; }
         public virtual long Id { get; set; }

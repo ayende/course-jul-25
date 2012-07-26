@@ -1,9 +1,11 @@
-﻿using System.Media;
+﻿using System;
+using System.Media;
 using System.Web;
 using NHibernate;
 
 namespace MediaMind.Course.Infrastructure
 {
+    [Serializable]
 	public class DontMakeMeCRY
 		: EmptyInterceptor
 	{
