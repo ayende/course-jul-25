@@ -24,4 +24,14 @@ namespace MediaMind.Course.Models
 		public virtual long Id { get; set; }
 		public virtual string Name { get; set; }
 	}
+
+    public class PositiveAd : Ad
+    {
+        public virtual string WhyThisIsAwesome { set; get; }
+    }
+
+    public class NegativeAd : Ad
+    {
+        public virtual string WhatThatSucks { set; get; }
+    }
 }

@@ -89,6 +89,7 @@
     <Compile Include="Infrastructure\DontMakeMeCRY.cs" />
     <Compile Include="Infrastructure\Inflector.cs" />
     <Compile Include="Infrastructure\NamingConvention.cs" />
+    <Compile Include="Infrastructure\Optimizations.cs" />
     <Compile Include="Infrastructure\ValidatingEventListener.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Campaign.cs" />

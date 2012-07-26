@@ -36,7 +36,7 @@ namespace MediaMind.Course.Controllers
 		private static ISessionFactory CreateSessionFactory()
 		{
 			var cfg = new Configuration();
-            cfg.SetNamingStrategy(new NamingConvention());
+            //cfg.SetNamingStrategy(new NamingConvention());
             cfg.DataBaseIntegration(properties =>
 			{
 				properties.SchemaAction = SchemaAutoAction.Create;
@@ -44,7 +44,7 @@ namespace MediaMind.Course.Controllers
 				properties.ConnectionStringName = Environment.MachineName;
 			});
 			cfg.AddAssembly(Assembly.GetExecutingAssembly());
-            //cfg.SetInterceptor(new DontMakeMeCRY());
+            cfg.SetInterceptor(new DontMakeMeCRY());
 			var validatingEventListener = new ValidatingEventListener();
 			cfg.SetListener(ListenerType.PreInsert, validatingEventListener);
 			cfg.SetListener(ListenerType.PreUpdate, validatingEventListener);

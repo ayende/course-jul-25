@@ -288,3 +288,13 @@ Exception rethrown at [0]:
 2012-07-26 11:19:56,488 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
 2012-07-26 11:24:56,487 [9] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
 2012-07-26 11:24:57,332 [9] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 11:29:57,336 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 11:29:58,120 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 11:34:58,121 [9] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 11:34:59,641 [9] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 11:39:59,640 [9] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 11:40:00,642 [9] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 11:45:00,643 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 11:45:01,601 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 11:50:01,601 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 11:50:02,392 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59

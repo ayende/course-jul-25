@@ -57,12 +57,20 @@
   </class>
 
 
-  <class name="Ad" >
+  <class name="Ad" abstract="true">
     <id name="Id" column="Id" type="System.Int64">
       <generator class="hilo"/>
     </id>
     <property name="Name" not-null="true"/>
     <many-to-one name="Campaign"/>
+
+    <union-subclass name="NegativeAd" >
+      <property name="WhatThatSucks"/>
+    </union-subclass>
+
+    <union-subclass name="PositiveAd" >
+      <property name="WhyThisIsAwesome"/>
+    </union-subclass>
 
   </class>
 

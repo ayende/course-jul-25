@@ -21,6 +21,7 @@ namespace MediaMind.Course.Infrastructure
 				new SoundPlayer("http://static1.grsites.com/archive/sounds/people/people076.wav")
 					.PlaySync();
 			}
+		    return Optimizations.Apply(sql);
 			return base.OnPrepareStatement(sql);
 		}
 	}
