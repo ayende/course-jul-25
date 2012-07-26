@@ -92,6 +92,7 @@
     <Compile Include="Infrastructure\Optimizations.cs" />
     <Compile Include="Infrastructure\ValidatingEventListener.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Ad.cs" />
     <Compile Include="Models\Campaign.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Office.cs" />
@@ -133,6 +134,9 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\Placement.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Ad.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />

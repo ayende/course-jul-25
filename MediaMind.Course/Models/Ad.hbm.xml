@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+									 namespace="MediaMind.Course.Models"
+									 assembly="MediaMind.Course">
+
+  <class name="Ad">
+    <id name="Id" column="Id" type="System.Int64">
+      <generator class="hilo"/>
+    </id>
+    <property name="Name" not-null="true"/>
+    <many-to-one name="Campaign"/>
+
+    <any name="Data" id-type="System.Int64" meta-type="System.String"
+         cascade="save-update">
+
+      <meta-value class="StandardBanner" value="StandardBanner"/>
+      <meta-value class="VideoStripImageAdData" value="VideoStripImageAdData"/>
+      
+      <column name="DataType"/>
+      <column name="DataId"/>
+    </any>
+
+  </class>
+
+  <class name="SharedAdData" abstract="true">
+    <id name="Id" column="Id" type="System.Int64">
+      <generator class="hilo"/>
+    </id>
+    <property name="SmartResource"/>
+
+    <union-subclass name="VideoStripImageAdData">
+      <property name="DefaultImage"/>
+    </union-subclass>
+
+    <union-subclass name="StandardBanner">
+      <property name="Size"/>
+    </union-subclass>
+  </class>
+
+
+</hibernate-mapping>

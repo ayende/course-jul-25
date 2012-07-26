@@ -39,7 +39,7 @@ namespace MediaMind.Course.Controllers
             //cfg.SetNamingStrategy(new NamingConvention());
             cfg.DataBaseIntegration(properties =>
 			{
-				properties.SchemaAction = SchemaAutoAction.Create;
+                //properties.SchemaAction = SchemaAutoAction.Validate;
 				properties.Dialect<NHibernate.Dialect.MsSql2008Dialect>();
 				properties.ConnectionStringName = Environment.MachineName;
 			});

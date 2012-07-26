@@ -298,3 +298,113 @@ Exception rethrown at [0]:
 2012-07-26 11:45:01,601 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
 2012-07-26 11:50:01,601 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
 2012-07-26 11:50:02,392 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 11:55:02,401 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 11:55:03,203 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 12:00:03,201 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 12:00:04,017 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 12:05:04,019 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 12:05:04,819 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 12:22:59,509 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 12:23:13,453 [16] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - Could not re-lease subscription license
+System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://uberprof.com/Subscriptions.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: The remote name could not be resolved: 'uberprof.com'
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at Rhino.Licensing.ISubscriptionLicensingService.LeaseLicense(String previousLicense)
+   at Rhino.Licensing.AbstractLicenseValidator.TryGettingNewLeaseSubscription()
+2012-07-26 12:23:13,478 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 12:28:13,489 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 12:28:14,790 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 12:33:14,790 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 12:33:15,972 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 12:38:15,980 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 12:38:17,364 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 12:43:17,374 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 12:43:18,443 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 12:48:18,440 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 12:48:19,340 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 12:53:19,352 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 12:53:20,166 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 12:58:20,167 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 12:58:21,963 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 13:03:21,967 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 13:03:22,828 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 13:08:22,830 [30] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 13:08:24,021 [30] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 13:13:24,022 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 13:13:24,955 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 13:18:24,964 [30] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 13:18:26,247 [30] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 13:23:26,248 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 13:23:27,124 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 13:28:27,127 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 13:28:28,892 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 13:33:28,895 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 13:33:29,779 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 13:38:29,791 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 13:38:30,616 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 13:43:30,623 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 13:43:31,446 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 13:48:31,455 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 13:48:32,590 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 13:53:32,607 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 13:53:33,469 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 13:58:33,477 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 13:58:34,466 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 14:03:34,469 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 14:03:35,432 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 14:08:35,439 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 14:08:36,836 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 14:13:36,833 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 14:13:37,636 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 14:18:37,633 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 14:18:38,616 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 14:23:38,623 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 14:23:39,621 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 14:28:39,628 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 14:28:40,695 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 14:33:40,693 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 14:33:41,977 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 14:38:41,978 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 14:38:46,202 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 14:43:46,212 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 14:43:47,818 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 14:48:47,824 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 14:48:49,166 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 14:53:49,171 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 14:53:50,450 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 14:58:50,456 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 14:58:53,530 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 15:03:53,534 [30] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 15:03:54,347 [30] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 15:08:54,350 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 15:08:55,689 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 15:13:55,699 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 15:13:58,798 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 15:18:58,807 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 15:19:00,140 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 15:24:00,139 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 15:24:01,113 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 15:29:01,112 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 15:29:01,921 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 15:34:01,928 [30] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 15:34:02,777 [30] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 15:39:02,776 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 15:39:03,563 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 15:44:03,563 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 15:44:04,345 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59

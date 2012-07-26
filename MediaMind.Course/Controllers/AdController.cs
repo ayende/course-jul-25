@@ -7,6 +7,46 @@ namespace MediaMind.Course.Controllers
 {
     public class AdController : NHibernateController
     {
+        public ActionResult NewAd()
+        {
+            var id = Session.Save(new Ad
+            {
+                Name = "Test Ad",
+                Data = new StandardBanner()
+                {
+                    Size = "300x120",
+                    SmartResource = 4
+                }
+            });
+
+            return Json(id);
+        }
+
+        public ActionResult ListAds()
+        {
+            var list = Session.Query<Ad>().ToList();
+
+            return Json(list.Select(x => new
+            {
+                x.Name, 
+                x.Type,
+                x.Data.SmartResource
+            }).ToList());
+        }
+
+
+        public ActionResult ShowNewAd(long id)
+        {
+            var ad = Session.Get<Ad>(id);
+
+            return Json(new
+            {
+                ad.Name,
+                ad.Data.SmartResource,
+                ((VideoStripImageAdData) ad.Data).DefaultImage
+            });
+        }
+
         public ActionResult CreateCampaign()
         {
             var save = Session.Save(new Campaign
