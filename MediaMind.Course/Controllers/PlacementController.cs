@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Web.Mvc;
 using MediaMind.Course.Models;
 
 namespace MediaMind.Course.Controllers
@@ -15,6 +17,11 @@ namespace MediaMind.Course.Controllers
                  {
                      Color = "red",
                      Size = 5
+                 },
+                 Attributes = new Dictionary<string, string>
+                 {
+                     {"BannerSize", "250x120"},
+                     {"Date", DateTime.Now.ToString("g")}
                  }
              };
              return Json(Session.Save(placement));

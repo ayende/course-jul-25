@@ -1,9 +1,13 @@
-﻿namespace MediaMind.Course.Models
+﻿using System.Collections.Generic;
+
+namespace MediaMind.Course.Models
 {
     public class Placement
     {
         public virtual int Id { get; set; }
         public virtual string Name { get; set; }
+
+        public virtual IDictionary<string, string> Attributes { get; set; }
 
         public virtual PlacementType Type { get; set; }
 

@@ -21,6 +21,12 @@
       <property name="Color" column="Banner_Color"/>
     </component>
 
+    <map name="Attributes" table="PlacementAttributes">
+      <key column="Placement"/>
+      <index column="Name" type="System.String"/>
+      <element column="Value" type="System.String"/>
+    </map>
+
   </class>
 
 
