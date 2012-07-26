@@ -80,7 +80,6 @@
     <Compile Include="Controllers\BootStrapper.cs" />
     <Compile Include="Controllers\FunController.cs" />
     <Compile Include="Controllers\PlacementController.cs" />
-    <Compile Include="Controllers\TimingController.cs" />
     <Compile Include="Infrastructure\AbstractValidator.cs" />
     <Compile Include="BusinessRules\MaxContactsPerCampaignValidator.cs" />
     <Compile Include="Controllers\HomeController.cs" />

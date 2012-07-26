@@ -10,6 +10,7 @@ namespace MediaMind.Course.Controllers
     {
         public ActionResult NewAd()
         {
+
             var id = Session.Save(new Ad
             {
                 Name = "Test Ad",

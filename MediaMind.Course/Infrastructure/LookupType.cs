@@ -74,6 +74,8 @@ namespace MediaMind.Course.Infrastructure
 
         public object DeepCopy(dynamic  value)
         {
+            if (value == null)
+                return value;
             return value.Clone();
         }
 

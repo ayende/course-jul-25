@@ -11,8 +11,18 @@ namespace MediaMind.Course.Infrastructure
 	{
 		public static int StatementCountPerRequest
 		{
-			get { return (int) (HttpContext.Current.Items["sql.in.req.count"] ?? 0); }
-			set { HttpContext.Current.Items["sql.in.req.count"] = value; }
+			get
+			{
+                if (HttpContext.Current == null)
+                    return 0;
+			    return (int) (HttpContext.Current.Items["sql.in.req.count"] ?? 0);
+			}
+			set
+			{
+                if (HttpContext.Current == null)
+                    return;
+                HttpContext.Current.Items["sql.in.req.count"] = value;
+			}
 		}
 
 		public override NHibernate.SqlCommand.SqlString 

@@ -434,3 +434,29 @@ Exception rethrown at [0]:
 2012-07-26 16:44:15,993 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
 2012-07-26 16:49:16,005 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
 2012-07-26 16:49:17,049 [6] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 16:53:15,733 [30] DEBUG HibernatingRhinos.Profiler.Client.Services.StackTraceExplorer [(null)] - Need to display in VS: C:\Work\temp\MediaMind.Course\MediaMind.Course\Infrastructure\LookupType.cs
+2012-07-26 16:53:18,215 [30] WARN  HibernatingRhinos.Profiler.Client.Services.StackTraceExplorer [(null)] - Trying to ask nicely from VS to activate has failed, trying to use SetForegroundWindow for the task
+2012-07-26 16:53:18,220 [30] DEBUG HibernatingRhinos.Profiler.Client.Services.StackTraceExplorer [(null)] - SetForegroundWindow returned: False
+2012-07-26 16:54:17,056 [30] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 16:54:18,279 [30] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 16:57:34,473 [1] ERROR HibernatingRhinos.Profiler.Client.Model.QueryPlan.QueryPlanModel [(null)] - Could not get query plan
+System.Data.SqlClient.SqlException: Could not find stored procedure 'Updating'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at HibernatingRhinos.Profiler.Client.Services.QueryPlan.SqlServerShowPlanService.GetPlanAsXml()
+   at HibernatingRhinos.Profiler.Client.Services.QueryPlan.SqlServerShowPlanService.GetPlan()
+   at HibernatingRhinos.Profiler.Client.Model.QueryPlan.QueryPlanModel.GetQueryPlan()
+2012-07-26 16:59:18,279 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 16:59:20,443 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 17:04:20,452 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59
+2012-07-26 17:04:21,642 [16] INFO  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 12/31/9999 23:59:59

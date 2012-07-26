@@ -39,18 +39,7 @@ namespace MediaMind.Course.Controllers
 
 		private static ISessionFactory CreateSessionFactory()
         {
-            sp = Stopwatch.StartNew();
-            Configuration cfg;
-            if(ConfigurationSaver.IsConfigurationFileValid)
-            {
-                cfg = ConfigurationSaver.LoadConfigurationFromFile();
-            } 
-		    else
-            {
-                cfg = CreateConfiguration();
-                ConfigurationSaver.SaveConfigurationToFile(cfg);
-            }
-            sp.Stop();
+		    Configuration cfg = CreateConfiguration();
 
 		    var buildSessionFactory = cfg.BuildSessionFactory();
             FormatTypeLookupType.Init(buildSessionFactory);
