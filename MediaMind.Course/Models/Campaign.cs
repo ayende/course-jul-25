@@ -18,20 +18,10 @@ namespace MediaMind.Course.Models
 		}
 	}
 
-	public abstract class Ad
+	public class Ad
 	{
 		public virtual Campaign Campaign { get; set; }
 		public virtual long Id { get; set; }
 		public virtual string Name { get; set; }
 	}
-
-    public class PositiveAd : Ad
-    {
-        public virtual string WhyThisIsAwesome { set; get; }
-    }
-
-    public class NegativeAd : Ad
-    {
-        public virtual string WhatThatSucks { set; get; }
-    }
 }

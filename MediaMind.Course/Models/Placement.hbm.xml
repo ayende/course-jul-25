@@ -13,10 +13,10 @@
 
     <property name="Name"/>
 
-    <component name="OutOfBanner">
+    <component name="OutOfBanner" lazy="true">
       <property name="Position" column="OutOfBanner_Position"/>
     </component>
-    <component name="Banner">
+    <component name="Banner" lazy="true">
       <property name="Size" column="Banner_Size"/>
       <property name="Color" column="Banner_Color"/>
     </component>

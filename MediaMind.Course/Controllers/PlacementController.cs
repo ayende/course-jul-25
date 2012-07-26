@@ -27,6 +27,20 @@ namespace MediaMind.Course.Controllers
              return Json(Session.Save(placement));
          }
 
+        public ActionResult Show(int id, bool full)
+        {
+            var placement = Session.Get<Placement>(id);
+
+            if (full)
+                return Json(new
+                {
+                    placement.Name,
+                    placement.Banner.Color
+                });
+
+            return Json(new {placement.Name});
+        }
+
         public ActionResult Change(int id)
         {
             var placement = Session.Get<Placement>(id);

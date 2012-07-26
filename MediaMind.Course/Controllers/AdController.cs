@@ -23,18 +23,18 @@ namespace MediaMind.Course.Controllers
             //    Campaign = Session.Load<Campaign>(id),
             //    Name = "ad"
             //});
-            Session.Save(new NegativeAd
-            {
-                Campaign = Session.Load<Campaign>(id),
-                Name = "NegativeAd",
-                WhatThatSucks = "because they suck"
-            });
-            Session.Save(new PositiveAd()
-            {
-                Campaign = Session.Load<Campaign>(id),
-                Name = "PositiveAd",
-                WhyThisIsAwesome = "yeah"
-            });
+            //Session.Save(new NegativeAd
+            //{
+            //    Campaign = Session.Load<Campaign>(id),
+            //    Name = "NegativeAd",
+            //    WhatThatSucks = "because they suck"
+            //});
+            //Session.Save(new PositiveAd()
+            //{
+            //    Campaign = Session.Load<Campaign>(id),
+            //    Name = "PositiveAd",
+            //    WhyThisIsAwesome = "yeah"
+            //});
             return Json("ok");
         }
 
@@ -46,10 +46,10 @@ namespace MediaMind.Course.Controllers
             return Json(list.Select(x => x.Name).ToList());
         }
 
-        public ActionResult ShowNegative(long id)
-        {
-            return Json(Session.Load<NegativeAd>(id).Name);
-        }
+        //public ActionResult ShowNegative(long id)
+        //{
+        //    return Json(Session.Load<NegativeAd>(id).Name);
+        //}
 
         public ActionResult ShowThroughModel(long id)
         {

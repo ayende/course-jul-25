@@ -3,7 +3,7 @@
 									 namespace="MediaMind.Course.Models"
 									 assembly="MediaMind.Course">
 
-  <class name="Account" >
+  <class name="Account">
     <id name="Id">
       <generator class="hilo"/>
     </id>
@@ -37,7 +37,7 @@
     <property name="Name" not-null="true"/>
     <many-to-one name="Account"/>
 
-    <set name="Ads" inverse="true">
+    <set name="Ads" inverse="true" lazy="extra">
       <key column="Campaign"/>
       <one-to-many class="Ad"/>
     </set>
@@ -57,20 +57,12 @@
   </class>
 
 
-  <class name="Ad" abstract="true">
+  <class name="Ad" >
     <id name="Id" column="Id" type="System.Int64">
       <generator class="hilo"/>
     </id>
     <property name="Name" not-null="true"/>
     <many-to-one name="Campaign"/>
-
-    <union-subclass name="NegativeAd" >
-      <property name="WhatThatSucks"/>
-    </union-subclass>
-
-    <union-subclass name="PositiveAd" >
-      <property name="WhyThisIsAwesome"/>
-    </union-subclass>
 
   </class>
 

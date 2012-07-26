@@ -36,17 +36,23 @@ namespace MediaMind.Course.Controllers
 		private static ISessionFactory CreateSessionFactory()
 		{
 			var cfg = new Configuration();
-			cfg.DataBaseIntegration(properties =>
+            cfg.SetNamingStrategy(new NamingConvention());
+            cfg.DataBaseIntegration(properties =>
 			{
 				properties.SchemaAction = SchemaAutoAction.Create;
 				properties.Dialect<NHibernate.Dialect.MsSql2008Dialect>();
 				properties.ConnectionStringName = Environment.MachineName;
 			});
 			cfg.AddAssembly(Assembly.GetExecutingAssembly());
-			cfg.SetInterceptor(new DontMakeMeCRY());
+            //cfg.SetInterceptor(new DontMakeMeCRY());
 			var validatingEventListener = new ValidatingEventListener();
 			cfg.SetListener(ListenerType.PreInsert, validatingEventListener);
 			cfg.SetListener(ListenerType.PreUpdate, validatingEventListener);
+
+            cfg.SetProperty(
+                NHibernate.Cfg.Environment.DefaultBatchFetchSize,
+                "25");
+
 			return cfg.BuildSessionFactory();
 		}
 
